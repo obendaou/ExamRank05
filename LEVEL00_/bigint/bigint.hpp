@@ -11,28 +11,29 @@ class bigint
 	public:
 		bigint();
 		bigint(std::string num);
-		bigint(int num);
+		bigint(unsigned int num);
 		bigint &operator=(const bigint &other);
-		bigint operator+(const bigint &other);
+		bigint operator+(const bigint &other) const;
 		bigint &operator+=(const bigint &other);
 		bigint &operator>>=(const bigint &other);
 		bigint &operator<<=(const bigint &other);
-		bigint &operator>>=(int nb);
-		bigint &operator<<=(int nb);
-		bool operator==(const bigint &other);
-		bool operator<(const bigint &other);
-		bool operator>(const bigint &other);
-		bool operator<=(const bigint &other);
-		bool operator>=(const bigint &other);
-		bool operator!=(const bigint &other);
-		bigint &operator<<(int nb);
-		bigint &operator<<(const bigint &other);
-		bigint &operator>>(int nb);
-		bigint &operator>>(const bigint &other);
-		bigint &operator++(int nb);
-		bigint &operator++();
+		bigint &operator>>=(unsigned int nb);
+		bigint &operator<<=(unsigned int nb);
+		bool operator==(const bigint &other) const;
+		bool operator<(const bigint &other) const;
+		bool operator>(const bigint &other) const;
+		bool operator<=(const bigint &other) const;
+		bool operator>=(const bigint &other) const;
+		bool operator!=(const bigint &other) const;
+		bigint operator<<(unsigned int nb)  const;
+		bigint operator<<(const bigint &other) const;
+		bigint operator>>(unsigned int nb) const;
+		bigint operator>>(const bigint &other) const;
+		bigint operator++(int nb);
+		bigint operator++();
+		std::string get_num() const;
 };
 
-std::ostream &operator<<(const std::ostream &os, const bigint &num);
+std::ostream &operator<<(std::ostream &os, const bigint &num);
 
 #endif
