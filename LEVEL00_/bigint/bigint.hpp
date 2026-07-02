@@ -2,6 +2,9 @@
 #define BIGINT_HPP
 
 #include <string>
+#include <sstream>
+#include <aio.h>
+#include <iostream>
 
 class bigint
 {
@@ -22,12 +25,16 @@ class bigint
 		bool operator>(const bigint &other) const;
 		bool operator!=(const bigint &other) const;
 		bigint operator<<(const bigint &other) const;
+		bigint operator<<(unsigned int n) const;
 		bigint operator>>(const bigint &other) const;
+		bigint operator>>(unsigned int n) const;
 		bigint &operator<<=(const bigint &other);
+		bigint &operator<<=(unsigned int n);
 		bigint &operator>>=(const bigint &other);
+		bigint &operator>>=(unsigned int n);
 		bigint &operator++();
 		bigint operator++(int num);
-		int getbignum() const;
+		std::string getbignum() const;
 		void setbignum(unsigned int num);
 		void setbignum(const std::string &num);
 
